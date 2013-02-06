@@ -4,8 +4,8 @@ import java.io.IOException;
 
 import android.os.AsyncTask;
 
+import com.example.androidjsontest.bean.parcelable.ChannelContentsResponseParcel;
 import com.example.androidjsontest.interfaces.AsyncTaskInterface;
-import com.example.androidjsontest.parcel.ChannelContentsResponseParcel;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
@@ -27,17 +27,14 @@ public class JSONLoader extends	AsyncTask<String, Void, ChannelContentsResponseP
 		try {
 			channelContentsResponseParcel = JSONParser.getChannelContentsObjFromJson(response);
 		} catch (JsonParseException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 			
 		} catch (JsonMappingException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 			
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return null;
 		}

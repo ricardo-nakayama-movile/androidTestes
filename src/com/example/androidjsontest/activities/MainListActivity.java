@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.example.androidjson.model.Movie;
 import com.example.androidjsontest.R;
 import com.example.androidjsontest.adapter.MovieAdapter;
-import com.example.androidjsontest.parcel.ChannelContentsResponseParcel;
+import com.example.androidjsontest.bean.parcelable.ChannelContentsResponseParcel;
 
 public class MainListActivity extends Activity {
 
@@ -27,7 +27,7 @@ public class MainListActivity extends Activity {
 		setContentView(R.layout.activity_main_list);
 		
 		listComplex = (ListView) findViewById(R.id.listMain);
-		channelContentsResponseParcel = getIntent().getExtras().getParcelable("teste");
+		channelContentsResponseParcel = getIntent().getExtras().getParcelable("movies");
 		movies = Movie.getMoviesList(channelContentsResponseParcel);
 		MovieAdapter adapter = new MovieAdapter(movies, this);
 		listComplex.setAdapter(adapter);

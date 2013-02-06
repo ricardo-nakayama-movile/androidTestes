@@ -1,4 +1,4 @@
-package com.example.androidjsontest.parcel;
+package com.example.androidjsontest.bean.parcelable;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +22,7 @@ public class ChannelContentsResponseParcel implements Parcelable {
 	 * 
 	 * @param in
 	 *            a parcel from which to read this object
+	 *            
 	 */
 	public ChannelContentsResponseParcel(Parcel in) {
 		readFromParcel(in);
@@ -66,10 +67,6 @@ public class ChannelContentsResponseParcel implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-
-		// The writeParcel method needs the flag
-		// as well - but thats easy.
-		
 		dest.writeString(categoryDescription);
 		dest.writeString(categoryID);
 		dest.writeString(categoryName);
@@ -82,18 +79,13 @@ public class ChannelContentsResponseParcel implements Parcelable {
 	 * 
 	 * @param in
 	 *            parcel from which to re-create object
+	 *            
 	 */
 	private void readFromParcel(Parcel in) {
-
-		// readParcelable needs the ClassLoader
-		// but that can be picked up from the class
-		// This will solve the BadParcelableException
-		// because of ClassNotFoundException
-		
 		categoryDescription = in.readString();
 		categoryID = in.readString();
 		categoryName = in.readString();
-		if (contents == null){
+		if (contents == null) {
 			contents = new ArrayList<ChannelContentsParcel>();
 		}
 		in.readTypedList(contents, ChannelContentsParcel.CREATOR);
@@ -103,12 +95,6 @@ public class ChannelContentsResponseParcel implements Parcelable {
 	 * 
 	 * This field is needed for Android to be able to create new objects,
 	 * individually or as arrays.
-	 * 
-	 * This also means that you can use use the default constructor to create
-	 * the object and use another method to hyrdate it as necessary.
-	 * 
-	 * I just find it easier to use the constructor. It makes sense for the way
-	 * my brain thinks ;-)
 	 * 
 	 */
 	public static final Parcelable.Creator<ChannelContentsResponseParcel> CREATOR = new Parcelable.Creator<ChannelContentsResponseParcel>() {

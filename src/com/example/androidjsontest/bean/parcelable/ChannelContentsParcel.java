@@ -1,4 +1,4 @@
-package com.example.androidjsontest.parcel;
+package com.example.androidjsontest.bean.parcelable;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -6,6 +6,7 @@ import android.util.Log;
 
 public class ChannelContentsParcel implements Parcelable {
 
+	private Long _id;
 	private String name;
 	private String description;
 	private String tag;
@@ -16,8 +17,42 @@ public class ChannelContentsParcel implements Parcelable {
 	private String inclusionTime;
 	private String publishTime;
 
+	public ChannelContentsParcel(String name, String description, String tag,
+			String accountType, String episodeImg, String episodeIdiOS,
+			String downloadUrl, String inclusionTime, String publishTime) {
+
+		this.name = name;
+		this.description = description;
+		this.tag = tag;
+		this.accountType = accountType;
+		this.episodeImg = episodeImg;
+		this.episodeIdiOS = episodeIdiOS;
+		this.downloadUrl = downloadUrl;
+		this.inclusionTime = inclusionTime;
+		this.publishTime = publishTime;
+	}
+
+	public ChannelContentsParcel(Long id, String name, String description,
+			String tag, String accountType, String episodeImg,
+			String episodeIdiOS, String downloadUrl, String inclusionTime,
+			String publishTime) {
+
+		this._id = id;
+		this.name = name;
+		this.description = description;
+		this.tag = tag;
+		this.accountType = accountType;
+		this.episodeImg = episodeImg;
+		this.episodeIdiOS = episodeIdiOS;
+		this.downloadUrl = downloadUrl;
+		this.inclusionTime = inclusionTime;
+		this.publishTime = publishTime;
+	}
+
 	/**
+	 * 
 	 * Standard basic constructor for non-parcel object creation
+	 * 
 	 */
 	public ChannelContentsParcel() {
 	}
@@ -28,6 +63,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * 
 	 * @param in
 	 *            a parcel from which to read this object
+	 * 
 	 */
 	public ChannelContentsParcel(Parcel in) {
 		readFromParcel(in);
@@ -37,7 +73,30 @@ public class ChannelContentsParcel implements Parcelable {
 	 * 
 	 * Getter
 	 * 
+	 * @return _id
+	 * 
+	 */
+	public Long getId() {
+		return _id;
+	}
+
+	/**
+	 * 
+	 * Setter
+	 * 
+	 * @param id
+	 * 
+	 */
+	public void setId(Long id) {
+		this._id = id;
+	}
+
+	/**
+	 * 
+	 * Getter
+	 * 
 	 * @return name
+	 * 
 	 */
 	public String getName() {
 		return name;
@@ -48,6 +107,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param name
+	 * 
 	 */
 	public void setName(String name) {
 		this.name = name;
@@ -58,6 +118,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Getter
 	 * 
 	 * @return description
+	 * 
 	 */
 	public String getDescription() {
 		return description;
@@ -68,6 +129,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param description
+	 * 
 	 */
 	public void setDescription(String description) {
 		this.description = description;
@@ -78,6 +140,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Getter
 	 * 
 	 * @return tag
+	 * 
 	 */
 	public String getTag() {
 		return tag;
@@ -88,6 +151,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param tag
+	 * 
 	 */
 	public void setTag(String tag) {
 		this.tag = tag;
@@ -98,6 +162,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Getter
 	 * 
 	 * @return accountType
+	 * 
 	 */
 	public String getAccountType() {
 		return accountType;
@@ -108,6 +173,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param accountType
+	 * 
 	 */
 	public void setAccountType(String accountType) {
 		this.accountType = accountType;
@@ -118,6 +184,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Getter
 	 * 
 	 * @return episodeImg
+	 * 
 	 */
 	public String getEpisodeImg() {
 		return episodeImg;
@@ -128,6 +195,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param episodeImg
+	 * 
 	 */
 	public void setEpisodeImg(String episodeImg) {
 		this.episodeImg = episodeImg;
@@ -138,6 +206,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Getter
 	 * 
 	 * @return episodeIdiOS
+	 * 
 	 */
 	public String getEpisodeIdiOS() {
 		return episodeIdiOS;
@@ -148,6 +217,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param episodeIdiOS
+	 * 
 	 */
 	public void setEpisodeIdiOS(String episodeIdiOS) {
 		this.episodeIdiOS = episodeIdiOS;
@@ -158,6 +228,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Getter
 	 * 
 	 * @return downloadUrl
+	 * 
 	 */
 	public String getDownloadUrl() {
 		return downloadUrl;
@@ -168,6 +239,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param downloadUrl
+	 * 
 	 */
 	public void setDownloadUrl(String downloadUrl) {
 		this.downloadUrl = downloadUrl;
@@ -178,6 +250,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Getter
 	 * 
 	 * @return inclusionTime
+	 * 
 	 */
 	public String getInclusionTime() {
 		return inclusionTime;
@@ -188,6 +261,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param inclusionTime
+	 * 
 	 */
 	public void setInclusionTime(String inclusionTime) {
 		this.inclusionTime = inclusionTime;
@@ -198,6 +272,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Getter
 	 * 
 	 * @return publishTime
+	 * 
 	 */
 	public String getPublishTime() {
 		return publishTime;
@@ -208,6 +283,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * Setter
 	 * 
 	 * @param publishTime
+	 * 
 	 */
 	public void setPublishTime(String publishTime) {
 		this.publishTime = publishTime;
@@ -220,10 +296,12 @@ public class ChannelContentsParcel implements Parcelable {
 
 	@Override
 	public void writeToParcel(Parcel dest, int flags) {
-		// We just need to write each field into the
-		// parcel. When we read from parcel, they
-		// will come back in the same order
-		Log.i("INFO", "writeToParcel..."+ flags);
+		/*
+		 * 
+		 * We just need to write each field into the parcel. When we read from
+		 * parcel, they will come back in the same order
+		 */
+		Log.i("INFO", "writeToParcel..." + flags);
 		dest.writeString(name);
 		dest.writeString(description);
 		dest.writeString(tag);
@@ -241,6 +319,7 @@ public class ChannelContentsParcel implements Parcelable {
 	 * 
 	 * @param in
 	 *            parcel from which to re-create object
+	 * 
 	 */
 	private void readFromParcel(Parcel in) {
 		// We just need to read back each

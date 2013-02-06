@@ -19,7 +19,7 @@
             <com.loopj.android.image.SmartImageView
                 android:id="@+id/adapterMoviePicture"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:layout_margin="1dp"
                 android:adjustViewBounds="true"
                 android:scaleType="centerCrop" />

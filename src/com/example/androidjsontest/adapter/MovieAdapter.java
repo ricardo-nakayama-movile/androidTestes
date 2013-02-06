@@ -16,15 +16,14 @@ import com.example.androidjsontest.R;
 import com.loopj.android.image.SmartImageView;
 
 public class MovieAdapter extends BaseAdapter {
-	
+
 	private List<Movie> movies;
 	private Context context;
-	
-	public MovieAdapter(List<Movie> movies, Context context){
-		
+
+	public MovieAdapter(List<Movie> movies, Context context) {
+
 		this.movies = movies;
 		this.context = context;
-		
 	}
 
 	@Override
@@ -34,7 +33,8 @@ public class MovieAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public Object getItem(int position) {		
+	public Object getItem(int position) {
+		
 		return movies.get(position);
 	}
 
@@ -48,25 +48,27 @@ public class MovieAdapter extends BaseAdapter {
 	public View getView(int position, View view, ViewGroup parent) {
 
 		final Movie movie = movies.get(position);
-		
-		if(view == null){
+
+		if (view == null) {
 			LayoutInflater inflater = LayoutInflater.from(context);
 			view = inflater.inflate(R.layout.adapter_main_item_channel, null);
 		}
-		
-		// TODO Lembrar de utilizar o viewHolder		
-		TextView textViewTitle 		 = (TextView) view.findViewById(R.id.adapterMovieTitle);
-		SmartImageView profileImage = (SmartImageView) view.findViewById(R.id.adapterMoviePicture);
-		LinearLayout layoutSelect	 = (LinearLayout) view.findViewById(R.id.adapterLayoutSelect);
-		
+
+		// TODO USE THE viewHolder PATTERN!!
+		TextView textViewTitle = (TextView) view
+				.findViewById(R.id.adapterMovieTitle);
+		SmartImageView profileImage = (SmartImageView) view
+				.findViewById(R.id.adapterMoviePicture);
+		LinearLayout layoutSelect = (LinearLayout) view
+				.findViewById(R.id.adapterLayoutSelect);
+
 		textViewTitle.setText(movie.title);
 		profileImage.setImageUrl(movies.get(position).idImage);
-		
-		
+
 		layoutSelect.setOnClickListener(new OnClickListener() {
-			
+
 			@Override
-			public void onClick(View v) {				 
+			public void onClick(View v) {
 			}
 		});
 
